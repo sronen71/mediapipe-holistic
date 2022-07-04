@@ -40,14 +40,11 @@ node {
   calculator: "HolisticLandmarkCpu"
   input_stream: "IMAGE:throttled_input_video"
   output_stream: "POSE_LANDMARKS:pose_landmarks"
-  output_stream: "POSE_WORLD_LANDMARKS:pose_world_landmarks"
   output_stream: "POSE_ROI:pose_roi"
   output_stream: "POSE_DETECTION:pose_detection"
   output_stream: "FACE_LANDMARKS:face_landmarks"
   output_stream: "LEFT_HAND_LANDMARKS:left_hand_landmarks"
   output_stream: "RIGHT_HAND_LANDMARKS:right_hand_landmarks"
-  output_stream: "LEFT_HAND_WORLD_LANDMARKS:left_hand_world_landmarks"
-  output_stream: "RIGHT_HAND_WORLD_LANDMARKS:right_hand_world_landmarks"
 }
 
 # Gets image size.
