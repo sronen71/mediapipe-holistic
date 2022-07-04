@@ -5,10 +5,10 @@ type: "HandWristForPose"
 # Hand landmarks to take wrist landmark from. (NormalizedLandmarkList)
 input_stream: "HAND_LANDMARKS:hand_landmarks"
 
+
 # Hand wrist landmark to replace original pose wrist landmark with updated
 # visibility. (NormalizedLandmarkList)
 output_stream: "WRIST_LANDMARK:hand_wrist_landmark_with_visibility"
-output_stream: "WRIST_WORLD_LANDMARK:hand_wrist_world_landmark_with_visibility"
 
 
 # Side packet with constant for visibility score. As score is `x` from
@@ -44,19 +44,6 @@ node {
   }
 }
 
-# Extracts wrist world landmark from the hand landmarks.
-node {
-  calculator: "SplitNormalizedLandmarkListCalculator"
-  input_stream: "hand_world_landmarks"
-  output_stream: "hand_wrist_world_landmark"
-  options: {
-    [mediapipe.SplitVectorCalculatorOptions.ext] {
-      ranges: { begin: 0 end: 1 }
-    }
-  }
-}
-
-
 
 # Sets wrist landmark visibility score. If HAND_LANDMARKS is non-empty - wrist
 # will always be visible.
@@ -65,15 +52,5 @@ node {
   input_stream: "NORM_LANDMARKS:hand_wrist_landmark"
   input_stream: "VISIBILITY:visible_score"
   output_stream: "NORM_LANDMARKS:hand_wrist_landmark_with_visibility"
-}
-
-
-# Sets wrist world landmark visibility score. If HAND_LANDMARKS is non-empty - wrist
-# will always be visible.
-node {
-  calculator: "SetLandmarkVisibilityCalculator"
-  input_stream: "NORM_LANDMARKS:hand_wrist_landmark"
-  input_stream: "VISIBILITY:visible_score"
-  output_stream: "NORM_LANDMARKS:hand_wrist_world_landmark_with_visibility"
 }
 
