@@ -84,11 +84,15 @@ input_side_packet: "USE_PREV_LANDMARKS:use_prev_landmarks"
 # 33 pose landmarks.
 output_stream: "POSE_LANDMARKS:pose_landmarks"
 # 33 pose world landmarks. (LandmarkList)
-output_stream: "WORLD_LANDMARKS:pose_world_landmarks"
+output_stream: "POSE_WORLD_LANDMARKS:pose_world_landmarks"
 # 21 left hand landmarks. (NormalizedLandmarkList)
 output_stream: "LEFT_HAND_LANDMARKS:left_hand_landmarks"
+output_stream: "LEFT_HAND_WORLD_LANDMARKS:left_hand_world_landmarks"
+#
 # 21 right hand landmarks. (NormalizedLandmarkList)
 output_stream: "RIGHT_HAND_LANDMARKS:right_hand_landmarks"
+output_stream: "RIGHT_HAND_WORLD_LANDMARKS:right_hand_world_landmarks"
+#
 # 468 face landmarks. (NormalizedLandmarkList)
 output_stream: "FACE_LANDMARKS:face_landmarks"
 
@@ -122,6 +126,9 @@ node {
   input_stream: "POSE_LANDMARKS:pose_landmarks"
   output_stream: "LEFT_HAND_LANDMARKS:left_hand_landmarks"
   output_stream: "RIGHT_HAND_LANDMARKS:right_hand_landmarks"
+  output_stream: "LEFT_HAND_WORLD_LANDMARKS:left_hand_world_landmarks"
+  output_stream: "RIGHT_HAND_WORLD_LANDMARKS:right_hand_world_landmarks"
+
 }
 
 # Extracts face-related pose landmarks.

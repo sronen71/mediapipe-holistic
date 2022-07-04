@@ -152,8 +152,10 @@ class Holistic(SolutionBase):
         center between hips.
         3) "left_hand_landmarks" field that contains the left-hand landmarks.
         4) "right_hand_landmarks" field that contains the right-hand landmarks.
-        5) "face_landmarks" field that contains the face landmarks.
-        6) "segmentation_mask" field that contains the segmentation mask if
+        5) "left_hand_world_landmarks" field that contains the left-hand world landmarks.
+        6) "right_hand_world_landmarks" field that contains the right-hand world landmarks.
+        7) "face_landmarks" field that contains the face landmarks.
+        8) "segmentation_mask" field that contains the segmentation mask if
            "enable_segmentation" is set to true.
     """
 
